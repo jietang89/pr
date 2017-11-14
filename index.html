@@ -21827,7 +21827,11 @@ require(
                   condition: function() { return !document.body.classList; } },
                 { src: "reveal.js/plugin/notes/notes.js",
                   async: true,
-                  condition: function() { return !!document.body.classList; } }
+                  condition: function() { return !!document.body.classList; } },
+                // Zoom in and out with Alt+click
+                { src: 'plugin/zoom-js/zoom.js', async: true },
+                // Speaker notes
+                { src: 'plugin/notes/notes.js', async: true }
             ]
         });
 
