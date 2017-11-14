@@ -16,7 +16,7 @@
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="reveal.js/css/reveal.css">
-<link rel="stylesheet" href="reveal.js/css/theme/sky.css" id="theme">
+<link rel="stylesheet" href="reveal.js/css/theme/Beige.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -30,25 +30,13 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 </script>
 
-<script type="text/javascript">
-
-$(document).ready(function(){
-
-    Reveal.configure({
-        transition: 'convex' // none/fade/slide/convex/concave/zoom
-    })
-});    
-</script>
-
-
-
 <!--[if lt IE 9]>
 <script src="reveal.js/lib/js/html5shiv.js"></script>
 <![endif]-->
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -70,7 +58,7 @@ $(document).ready(function(){
     <!-- End of mathjax configuration -->
 
 <!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -79,8 +67,8 @@ $(document).ready(function(){
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1175,7 +1163,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2604,7 +2591,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3095,7 +3081,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8826,6 +8811,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -9028,8 +9016,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -9052,6 +9046,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9188,6 +9192,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9277,6 +9284,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9321,6 +9331,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9617,6 +9630,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9637,11 +9651,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11312,7 +11321,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11624,6 +11633,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11637,6 +11647,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11759,7 +11772,6 @@ ul.typeahead-list > li > a {
 /* Overrides of notebook CSS for static HTML export */
 .reveal {
   font-size: 160%;
-  overflow-y: scroll;
 }
 .reveal pre {
   width: inherit;
@@ -11789,6 +11801,41 @@ ul.typeahead-list > li > a {
 }
 .reveal .progress {
   position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
 }
 div.input_area {
   padding: 0.06em;
@@ -11822,6 +11869,19 @@ a.anchor-link {
 }
 .rendered_html p {
   text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
@@ -11887,7 +11947,11 @@ a.anchor-link {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[43]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[43]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11929,7 +11993,11 @@ a.anchor-link {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[4]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11966,7 +12034,11 @@ Name: SalePrice, dtype: float64</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>/Users/jietang/anaconda3/lib/python3.6/site-packages/statsmodels/nonparametric/kdetools.py:20: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
   y = X[:m/2+1] + np.r_[0,X[m/2+1:],0]*1j
@@ -11974,7 +12046,11 @@ Name: SalePrice, dtype: float64</pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[53]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[53]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11983,7 +12059,11 @@ Name: SalePrice, dtype: float64</pre>
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -12359,7 +12439,11 @@ qmUqnrlpAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Skewness:1.8828757597682129
 Kurtosis:6.536281860064529
@@ -12403,7 +12487,11 @@ Kurtosis:6.536281860064529
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -12706,7 +12794,11 @@ NsYYUzRrmRhjjCmaBRNjjDFFs2BijDGmaBZMjDHGFM2CiTHGmKJZMDHGGFM0CybGGGOKZsHEGGNM
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -13010,7 +13102,11 @@ FkyMMcYUzYKJMcaYolkwMcYYUzQLJsYYY4r2fwDEl1G1Mcc9UAAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -13258,7 +13354,11 @@ cP8HlxazfFeXDiIAAAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -13777,7 +13877,11 @@ AAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[61]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[61]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13786,7 +13890,11 @@ AAAASUVORK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -14900,7 +15008,11 @@ SUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -16017,7 +16129,11 @@ AElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -21211,7 +21327,11 @@ Ou2EEEIIIYQQQgghhFCZ/wf88VV8hAIkxAAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[28]:</div>
+
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -21354,7 +21474,11 @@ Ou2EEEIIIYQQQgghhFCZ/wf88VV8hAIkxAAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[30]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -21383,7 +21507,11 @@ Ou2EEEIIIYQQQgghhFCZ/wf88VV8hAIkxAAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[62]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[62]:</div>
+
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -21667,19 +21795,6 @@ Ou2EEEIIIYQQQgghhFCZ/wf88VV8hAIkxAAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section></section>
 </div>
 </div>
 
@@ -21704,8 +21819,7 @@ require(
             progress: true,
             history: true,
 
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+            transition: "convex",
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
@@ -21725,13 +21839,25 @@ require(
 
         Reveal.addEventListener('slidechanged', update);
 
-        var update_scroll = function(event){
-          $(".reveal").scrollTop(0);
-        };
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
 
-        Reveal.addEventListener('slidechanged', update_scroll);
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
 
     }
+
 );
 </script>
 
