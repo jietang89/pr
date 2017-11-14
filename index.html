@@ -30,9 +30,16 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 </script>
 
-<section data-transition="zoom">
-	<h2>This slide will override the presentation transition and zoom!</h2>
-</section>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    Reveal.configure({
+        transition: 'convex' // none/fade/slide/convex/concave/zoom
+    })
+});    
+</script>
+
 
 
 <!--[if lt IE 9]>
